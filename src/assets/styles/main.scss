@@ -1,0 +1,5 @@
+@import "./tailwind";
+
+body {
+  @apply font-default antialiased dark:text-white text-slate-950 leading-normal dark:bg-slate-950 bg-gray-50 overflow-x-hidden min-h-screen;
+}

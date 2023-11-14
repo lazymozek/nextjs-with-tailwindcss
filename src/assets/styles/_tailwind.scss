@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /** Base styles here **/
+}
+
+@layer utilities {
+  /** Extra utilities or custom class components here **/
+
+  .container-grid-columns {
+    grid-template-columns:
+      [screen-start] minmax(theme("spacing.8"), 1fr)
+      [gap-start] minmax(0, theme("spacing.4"))
+      [container-start] min(
+        100% - (theme("spacing.8") * 2),
+        theme("screens.xl")
+      )
+      [container-end]
+      minmax(0, theme("spacing.4")) [gap-end]
+      minmax(theme("spacing.8"), 1fr) [screen-end];
+
+    & > :not(.filled) {
+      grid-column: container;
+    }
+
+    & > .filled {
+      grid-column: screen;
+    }
+  }
+
+  .container-grid {
+    @apply relative grid container-grid-columns;
+  }
+}
